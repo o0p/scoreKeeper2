@@ -30,13 +30,16 @@ p2Button.addEventListener('click', ()=>{
 });
 
 winScoreSelect.addEventListener('change', function(){
-    alert(this.value);
+    winScore = parseInt(this.value);
+    reset();
 });
 
-resetButton.addEventListener('click', ()=>{
-isGO = false;
-p1Score = 0;
-p2Score = 0;
-p1Display.textContent = 0;
-p2Display.textContent = 0;
-});
+resetButton.addEventListener('click', reset);
+
+function reset() {
+    isGO = false;
+    p1Score = 0;
+    p2Score = 0;
+    p1Display.textContent = 0;
+    p2Display.textContent = 0;
+    };
