@@ -3,6 +3,7 @@ const p2Button = document.querySelector('#p2Button');
 const resetButton = document.querySelector('#reset');
 const p1Display = document.querySelector('#p1Display');
 const p2Display = document.querySelector('#p2Display');
+const winScoreSelect = document.querySelector('#playto');
 
 let p1Score = 0;
 let p2Score = 0;
@@ -15,7 +16,7 @@ p1Button.addEventListener('click', ()=>{
         if(p1Score === winScore) {
             isGO = true;     
         }
-        p1Display.textContent = p1Score;
+        p1Display.textContent = p1Score;  
     }
 });
 p2Button.addEventListener('click', ()=>{
@@ -26,6 +27,10 @@ p2Button.addEventListener('click', ()=>{
         }
         p2Display.textContent = p2Score;
     }
+});
+
+winScoreSelect.addEventListener('change', function(){
+    alert(this.value);
 });
 
 resetButton.addEventListener('click', ()=>{
