@@ -6,16 +6,23 @@ const p2Display = document.querySelector('#p2Display');
 let p1Score = 0;
 let p2Score = 0;
 let winScore = 5;
+let isGO = false;
 
 p1Button.addEventListener('click', ()=>{
-    if(p1Score !== winScore) {        
+    if(!isGO){
         p1Score += 1;
+        if(p1Score === winScore) {
+            isGO = true;     
+        }
         p1Display.textContent = p1Score;
     }
 })
 p2Button.addEventListener('click', ()=>{
-    if(p2Score !== winScore) {        
+    if(!isGO){
         p2Score += 1;
+        if(p2Score === winScore) {
+            isGO = true;     
+        }
         p2Display.textContent = p2Score;
     }
 })
