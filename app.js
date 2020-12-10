@@ -12,14 +12,30 @@ const p2 = {
 
 
 const resetButton = document.querySelector('#reset');
-const winScoreSelect = document.querySelector('#playto');
-let winScore = 3;
+
+let WIN = {
+       makeCounter: function() {
+            for (let i = 1; i < 50; i++){
+                let scoreRange = `<option value='${i}'>${i}</option>`;
+                WIN.select.innerHTML += scoreRange;
+            }            
+        },
+        score: 13,
+        select: document.querySelector('#playto')
+    }
+    
+WIN.makeCounter();
+
+
+let winScore = Number;
 let isGO = false;
+
+
 
 function updateScore(player, opponent){
     if(!isGO){
         player.score += 1;
-        if(player.score  === winScore) {
+        if(player.score  ===  WIN.score) {
             isGO = true;     
             player.display.classList.add('has-text-success');
             opponent.display.classList.add('has-text-danger');
@@ -39,8 +55,8 @@ p2.button.addEventListener('click', ()=>{
 
 });
 
-winScoreSelect.addEventListener('change', function(){
-    winScore = parseInt(this.value);
+WIN.select.addEventListener('change', function(){
+    WIN.score = parseInt(this.value);
     reset();
 });
 
