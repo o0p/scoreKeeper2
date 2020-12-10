@@ -50,12 +50,12 @@ resetButton.addEventListener('click', reset);
 
 function reset() {
     isGO = false;
-    p1Score = 0;
-    p2Score = 0;
-    p1Display.textContent = 0;
-    p2Display.textContent = 0;
-    p1Display.classList.remove('has-text-success','has-text-danger');
-    p2Display.classList.remove('has-text-danger','has-text-success');
-    p1Button.disabled = false;
-    p2Button.disabled = false;
+    p1.score = 0;
+    p2.score = 0;
+    p1.display.textContent = 0;
+    p2.display.textContent = 0;
+    p1.display.classList.remove('has-text-success','has-text-danger');
+    p2.display.classList.remove('has-text-danger','has-text-success');
+    p1.button.disabled = false;
+    p2.button.disabled = false;
     };
