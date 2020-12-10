@@ -13,40 +13,32 @@ const p2 = {
 
 
 const resetButton = document.querySelector('#reset');
-
 const winScoreSelect = document.querySelector('#playto');
-
-let p1Score = 0;
-let p2Score = 0;
-let winScore = 5;
+let winScore = 3;
 let isGO = false;
 
-p1Button.addEventListener('click', ()=>{
+
+function updateScore(player, opponent){
     if(!isGO){
-        p1Score += 1;
-        if(p1Score === winScore) {
+        player.score += 1;
+        if(player.score  === winScore) {
             isGO = true;     
-            p1Display.classList.add('has-text-success');
-            p2Display.classList.add('has-text-danger');
-            p1Button.disabled = true;
-            p2Button.disabled = true;
+            player.display.classList.add('has-text-success');
+            opponent.display.classList.add('has-text-danger');
+            player.disabled = true;
+            opponent.disabled = true;
         }
-        p1Display.textContent = p1Score;  
+        player.display.textContent = player.score;  
     }
+}
+
+p1.button.addEventListener('click', ()=>{
+    updateScore(p1, p2);
 });
 
-p2Button.addEventListener('click', ()=>{
-    if(!isGO){
-        p2Score += 1;
-        if(p2Score === winScore) {
-            isGO = true;
-            p2Display.classList.add('has-text-success');
-            p1Display.classList.add('has-text-danger');
-            p1Button.disabled = true;
-            p2Button.disabled = true;
-        }
-        p2Display.textContent = p2Score;
-    }
+p2.button.addEventListener('click', ()=>{
+    updateScore(p2, p1);
+
 });
 
 winScoreSelect.addEventListener('change', function(){
