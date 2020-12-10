@@ -11,12 +11,10 @@ const p2 = {
 };
 
 
-
 const resetButton = document.querySelector('#reset');
 const winScoreSelect = document.querySelector('#playto');
 let winScore = 3;
 let isGO = false;
-
 
 function updateScore(player, opponent){
     if(!isGO){
