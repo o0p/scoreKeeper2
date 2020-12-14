@@ -15,19 +15,18 @@ const resetButton = document.querySelector('#reset');
 
 let WIN = {
        makeCounter: function() {
-            for (let i = 1; i < 50; i++){
+            for (let i = 1; i <= 50; i++){
                 let scoreRange = `<option value='${i}'>${i}</option>`;
                 WIN.select.innerHTML += scoreRange;
             }            
         },
-        score: 13,
+        score: 1,
         select: document.querySelector('#playto')
     }
-    
+
 WIN.makeCounter();
 
 
-let winScore = Number;
 let isGO = false;
 
 
@@ -59,7 +58,7 @@ WIN.select.addEventListener('change', function(){
     WIN.score = parseInt(this.value);
     reset();
 });
-
+ 
 resetButton.addEventListener('click', reset);
 
 function reset() {
